@@ -1,0 +1,113 @@
+@import 'styles/shared.scss';
+@import 'styles/base.scss';
+
+.TodoList {
+  @extend %list;
+
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 24px;
+}
+
+.todoTitle {
+  text-align: center;
+  padding: 5px;
+  background-color: rgb(243, 240, 240);
+  font-weight: 600;
+  font-style: italic;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.todoTime {
+  text-align: right;
+  font-size: 14px;
+}
+
+.todoItem {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(146, 146, 90);
+  border-radius: 5px;
+}
+
+.iconDelete {
+  margin-right: 10px;
+}
+
+.complete {
+  color: rgb(17, 112, 8);
+  text-decoration: line-through;
+}
+
+.todoText {
+  border-radius: 10px;
+  background-color: rgb(243, 240, 240);
+  margin-bottom: 10px;
+}
+
+.todoEditText {
+  border-radius: 10px;
+  background-color: rgb(243, 240, 240);
+  min-width: 100%;
+  min-height: 100px;
+}
+
+.btnEditTodo {
+  width: 100%;
+
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+  transition-duration: 0.4s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #6fd873;
+  }
+}
+
+.btnWrapper {
+  cursor: pointer;
+}
+
+// ________________select________________
+.select {
+  display: block;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  margin-bottom: 20px;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: 0.5em;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.select:hover {
+  border-color: #888;
+}
+.select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}

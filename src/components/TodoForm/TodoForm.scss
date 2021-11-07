@@ -1,0 +1,18 @@
+.todoForm {
+  align-items: center;
+  display: flex;
+}
+
+// .todoInput {
+//   margin-right: 10px;
+// }
+
+.todoFormInput {
+  display: flex;
+  flex-direction: column;
+  min-width: 435px;
+}
+
+.todoText {
+  min-height: 100px;
+}
