@@ -33,6 +33,7 @@ function TodoList() {
 
   const addTodo = todo => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
+      alert('Enter text');
       return;
     }
 
