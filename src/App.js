@@ -1,39 +1,51 @@
 import { Switch, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
 import Container from './components/Container';
 import TodoListView from './components/TodoList';
 import AppBar from './components/AppBar/AppBar';
-import HomeView from './views/HomeView';
-import RegisterView from './views/RegisterView';
-import LoginView from './views/LoginView';
-import NotFoundView from './views/NotFoundView';
+import LoaderComponent from './components/LoaderComponent';
+const HomeView = lazy(() =>
+  import('./views/HomeView' /* webpackChunkName: "home-view" */),
+);
+const RegisterView = lazy(() =>
+  import('./views/RegisterView' /* webpackChunkName: "authors-view" */),
+);
+const LoginView = lazy(() =>
+  import('./views/LoginView' /* webpackChunkName: "login-view" */),
+);
+const NotFoundView = lazy(() =>
+  import('./views/NotFoundView' /* webpackChunkName: "not-found-view" */),
+);
 
 const App = () => {
   return (
     <Container>
-      <AppBar />
+      <Suspense fallback={<LoaderComponent />}>
+        <AppBar />
 
-      <Switch>
-        <Route path="/" exact>
-          <HomeView />
-        </Route>
+        <Switch>
+          <Route path="/" exact>
+            <HomeView />
+          </Route>
 
-        <Route exact path="/register">
-          <RegisterView />
-        </Route>
+          <Route exact path="/register">
+            <RegisterView />
+          </Route>
 
-        <Route exact path="/login">
-          <LoginView />
-        </Route>
+          <Route exact path="/login">
+            <LoginView />
+          </Route>
 
-        <Route path="/todos">
-          <TodoListView />
-        </Route>
+          <Route path="/todos">
+            <TodoListView />
+          </Route>
 
-        <Route>
-          <NotFoundView />
-        </Route>
-      </Switch>
+          <Route>
+            <NotFoundView />
+          </Route>
+        </Switch>
+      </Suspense>
     </Container>
   );
 };

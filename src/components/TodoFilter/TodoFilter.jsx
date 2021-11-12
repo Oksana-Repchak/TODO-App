@@ -3,7 +3,7 @@ import './TodoFilter.scss';
 
 const TodoFilter = ({ value, onChange }) => (
   <div className="TodoFilter">
-    <p className="TodoFilter__label">Search announcements by title</p>
+    <p className="TodoFilter__label">Search announcements by text</p>
     <input
       type="text"
       className="TodoFilter__input"
